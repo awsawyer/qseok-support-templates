@@ -1,0 +1,36 @@
+#Generic Working Minimal Deployment for Qlik Sense Enterprise on Kubernetes
+# Enable Dev Mode - Required for Mongo DB - NOT FOR PRODUCTION
+devMode:
+  enabled: true
+engine:
+  acceptEULA: "yes"
+#Idenity Provider information wihtout identify information
+identity-providers:
+  replicaCount: "2"
+  secrets:
+    idpConfigs:
+      - discoveryUrl: "https://<TENANT>.auth0.com/.well-known/openid-configuration"
+        clientId: ""
+        clientSecret : ""
+        realm: "Auth0"
+        hostname: "elastic.example"
+        claimsMapping:
+          client_id: [ "client_id", "azp" ]
+          groups: "/https:~1~1qlik.com~1groups"
+          sub: ["/https:~1~1qlik.com~1sub", "sub"]
+#Added the default-ssl-certificate as well
+elastic-infra:
+  nginx-ingress:
+    controller:
+      extraArgs:
+        default-ssl-certificate: "default/qseok-tls2"
+#Set Storage Class across multiple Pods
+global:
+  persistence:
+    storageClass: nfs
+#Set Mongo DB Settings
+mongodb:
+  persistence:
+    accessMode: ReadWriteMany
+    enabled: true
+    storageClass: nfs
