@@ -1,0 +1,6 @@
+#Added the default-ssl-certificate as well
+elastic-infra:
+  nginx-ingress:
+    controller:
+      extraArgs:
+        default-ssl-certificate: "<namespace>/<secretname>"

@@ -1,0 +1,24 @@
+devMode:
+  enabled: true
+engine:
+  acceptEULA: "yes"
+identity-providers:
+  secrets:
+    idpConfigs:
+      - discoveryUrl: "https://<nameid>.auth0.com/.well-known/openid-configuration"
+        clientId: ""
+        clientSecret : ""
+        realm: "Auth0"
+        hostname: "elastic.example"
+        claimsMapping:
+          client_id: [ "client_id", "azp" ]
+          groups: "/https:~1~1qlik.com~1groups"
+          sub: ["/https:~1~1qlik.com~1sub", "sub"]
+global:
+  persistence:
+    storageClass: nfs
+mongodb:
+  persistence:
+    accessMode: ReadWriteMany
+    enabled: true
+    storageClass: nfs

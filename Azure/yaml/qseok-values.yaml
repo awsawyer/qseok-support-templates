@@ -1,0 +1,38 @@
+# Enable Dev Mode
+devMode:
+  enabled: true
+engine:
+  acceptEULA: "yes"
+identity-providers:
+  secrets:
+    idpConfigs:
+      - discoveryUrl: "https://awsawyer.auth0.com/.well-known/openid-configuration"
+        clientId: "ScDo4zhZOzLO42iBGAD0HedzC3DaWwDs"
+        clientSecret : "Eli95veF1CTcjadeE5D09gRr2uifA6xj4bkNa-I4Qei8z2d7tOC6nCCimxpgre75"
+        realm: "Auth0"
+        hostname: "elastic.example"
+        claimsMapping:
+          client_id: [ "client_id", "azp" ]
+          groups: "/https:~1~1qlik.com~1groups"
+          sub: ["/https:~1~1qlik.com~1sub", "sub"]
+#Added the default-ssl-certificate as well
+elastic-infra:
+  nginx-ingress:
+    controller:
+      # extraArgs:
+        # default-ssl-certificate: "default/qseok-tls"
+global:
+  persistence:
+    storageClass: azurefile
+#Uncomment URI when TLS is added
+mongodb:
+  # uri: "mongodb://qlik:Qlik1234@10.48.10.76:27017/qsefe?ssl=false"
+  persistence:
+    accessMode: ReadWriteMany
+    enabled: true
+    storageClass: azurefile
+  # Added for Azure
+  securityContext:
+    enabled: true
+    fsGroup: 63400
+    runAsUser: 63400
