@@ -393,7 +393,7 @@ Edit the values ```qseok-values.yaml``` with the new ip as Hostname and then run
     helm upgrade --install qseok qlik/qliksense -f ./qseok-values.yaml
 ```
 
-##OR 
+## OR 
 
 you can use the same hostname ```elastic.example``` and create a local host entry on your computer. 
 
