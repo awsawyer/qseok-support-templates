@@ -1,5 +1,5 @@
-# qseok-support-templates
-This repo is to gather scripts for deploying and automating QSEoK to Cloud Providers. 
+# Qlik Sense Enterprise on Kubernetes - Support Templates
+This repo is to gather scripts for deploying and automating Qlik Sense Enterprise on Kubernetes to public cloud providers. 
 
 I will be adding to it over the fall as new releases come out for versions and be making pull requests with changes. 
 
