@@ -7,8 +7,8 @@ identity-providers:
   secrets:
     idpConfigs:
       - discoveryUrl: "https://awsawyer.auth0.com/.well-known/openid-configuration"
-        clientId: "ScDo4zhZOzLO42iBGAD0HedzC3DaWwDs"
-        clientSecret : "Eli95veF1CTcjadeE5D09gRr2uifA6xj4bkNa-I4Qei8z2d7tOC6nCCimxpgre75"
+        clientId: ""
+        clientSecret : ""
         realm: "Auth0"
         hostname: "elastic.example"
         claimsMapping:
